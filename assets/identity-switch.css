@@ -1,0 +1,33 @@
+.identity-switch-menu {
+	box-sizing: border-box;
+	width: min(100%, 24rem);
+	padding: 1rem;
+	color: inherit;
+}
+.identity-switch-menu .identity-switch-description {
+	margin: 0 0 1rem;
+}
+.identity-switch-menu [hidden] {
+	display: none !important;
+}
+.identity-switch-menu [role="alert"] {
+	margin: 0 0 .75rem;
+	color: #a21d18;
+}
+.identity-switch-menu .identity-switch-actions {
+	margin-top: 1rem;
+}
+.identity-switch-menu .identity-switch-actions .btn {
+	white-space: normal;
+}
+.identity-switch-menu :focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* Lift only this native ILIAS slate's clipping while its ModularSelect list is open. */
+.il-metabar-slates:has(.identity-switch-menu .mselect-popup:not([hidden])),
+.il-metabar-slates .il-maincontrols-slate:has(.identity-switch-menu .mselect-popup:not([hidden])) {
+	max-height: none;
+	overflow: visible;
+}

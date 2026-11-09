@@ -1,0 +1,13 @@
+{
+	"manifestVersion": 1,
+	"name": "IliasIdentitySwitch",
+	"namespace": "IliasIdentitySwitch",
+	"version": "1.0.0",
+	"description": "Feature-gated temporary ILIAS identity switching using BASE3 and native ILIAS sessions.",
+	"license": "GPL-3.0-or-later",
+	"dependencies": {
+		"Base3Framework": ">=4.10.0",
+		"Base3Ilias": ">=4.21.0",
+		"ClientStack": ">=4.23.0"
+	}
+}
