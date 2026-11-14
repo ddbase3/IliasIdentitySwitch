@@ -1,20 +1,35 @@
 <?php declare(strict_types=1);
 
-namespace IliasIdentitySwitch\Test\MetaBar;
+/***********************************************************************
+ * This file is part of IliasIdentitySwitch for BASE3 Framework.
+ *
+ * IliasIdentitySwitch manages temporary native ILIAS identities.
+ * It provides authorized session switching and safe restoration.
+ * Native ILIAS permissions continue to govern every operation.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Api\IAssetResolver;
-use Base3\Api\IMvcView;
-use Base3\Api\ISystemService;
-use Base3\LinkTarget\Api\ILinkTargetService;
-use Base3\Translation\Api\ITranslation;
-use IliasIdentitySwitch\MetaBar\IdentitySwitchMetaBarItemProvider;
-use IliasIdentitySwitch\Test\Fixture\AbstractIdentitySwitchRuntimeFixture;
+
+namespace Base3\IliasIdentitySwitch\Test\MetaBar;
+
+use Base3\CoreFoundation\Api\IAssetResolver;
+use Base3\CoreFoundation\Api\IMvcView;
+use Base3\CoreFoundation\Api\ISystemService;
+use Base3\CoreFoundation\LinkTarget\Api\ILinkTargetService;
+use Base3\CoreFoundation\Translation\Api\ITranslation;
+use Base3\IliasIdentitySwitch\MetaBar\IdentitySwitchMetaBarItemProvider;
+use Base3\IliasIdentitySwitch\Test\Fixture\AbstractIdentitySwitchRuntimeFixture;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
-use IliasIdentitySwitch\Test\Fixture\NativeIdentificationStub;
-use IliasIdentitySwitch\Test\Fixture\NativeLegacyContentStub;
-use IliasIdentitySwitch\Test\Fixture\NativeMetaBarItemFactoryStub;
-use IliasIdentitySwitch\Test\Fixture\NativeMetaBarItemStub;
+use Base3\IliasIdentitySwitch\Test\Fixture\NativeIdentificationStub;
+use Base3\IliasIdentitySwitch\Test\Fixture\NativeLegacyContentStub;
+use Base3\IliasIdentitySwitch\Test\Fixture\NativeMetaBarItemFactoryStub;
+use Base3\IliasIdentitySwitch\Test\Fixture\NativeMetaBarItemStub;
 
 #[RunTestsInSeparateProcesses]
 #[PreserveGlobalState(false)]

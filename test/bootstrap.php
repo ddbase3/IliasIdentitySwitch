@@ -1,19 +1,19 @@
 <?php declare(strict_types=1);
 
-/** Isolated PHPUnit bootstrap. Native ILIAS classes are never declared in source files. */
-$componentRoot = dirname(__DIR__);
-$modulesRoot = dirname($componentRoot);
-
-spl_autoload_register(static function(string $class) use ($componentRoot, $modulesRoot): void {
-	$roots = [
-		'IliasIdentitySwitch\\Test\\' => $componentRoot . '/test/',
-		'IliasIdentitySwitch\\' => $componentRoot . '/src/',
-		'Base3\\' => $modulesRoot . '/Base3Framework/src/',
-		'Base3Ilias\\' => $modulesRoot . '/Base3Ilias/src/'
-	];
-	foreach ($roots as $namespace => $directory) {
-		if (!str_starts_with($class, $namespace)) continue;
-		$file = $directory . str_replace('\\', '/', substr($class, strlen($namespace))) . '.php';
+/** Test-only autoloading for the installed ILIAS 11 components/Base3 module tree. */
+$moduleRoot = dirname(__DIR__);
+$modulesRoot = dirname($moduleRoot);
+$prefixes = [
+	'Base3\\IliasIdentitySwitch\\Test\\' => __DIR__ . '/',
+	'Base3\\IliasIdentitySwitch\\' => $moduleRoot . '/src/',
+	'Base3\\CoreFoundation\\' => $modulesRoot . '/CoreFoundation/src/',
+	'Base3\\Base3Ilias\\' => $modulesRoot . '/Base3Ilias/src/',
+	'Base3\\ClientStack\\' => $modulesRoot . '/ClientStack/src/'
+];
+spl_autoload_register(static function(string $class) use ($prefixes): void {
+	foreach ($prefixes as $prefix => $directory) {
+		if (!str_starts_with($class, $prefix)) continue;
+		$file = $directory . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
 		if (is_file($file)) require_once $file;
 		return;
 	}
@@ -35,7 +35,7 @@ foreach ($nativeAliases as $target => $fixture) {
 	if (class_exists($target, false) || interface_exists($target, false)) {
 		throw new \RuntimeException('Run these tests without a bootstrapped ILIAS application.');
 	}
-	class_alias('IliasIdentitySwitch\\Test\\Fixture\\' . $fixture, $target);
+	class_alias('Base3\\IliasIdentitySwitch\\Test\\Fixture\\' . $fixture, $target);
 }
 
 if (!defined('ILIAS_HTTP_PATH')) define('ILIAS_HTTP_PATH', 'https://example.test/ilias11');

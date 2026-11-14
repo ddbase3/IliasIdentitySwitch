@@ -1,17 +1,32 @@
 <?php declare(strict_types=1);
 
-namespace IliasIdentitySwitch\MetaBar;
+/***********************************************************************
+ * This file is part of IliasIdentitySwitch for BASE3 Framework.
+ *
+ * IliasIdentitySwitch manages temporary native ILIAS identities.
+ * It provides authorized session switching and safe restoration.
+ * Native ILIAS permissions continue to govern every operation.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Api\IAssetResolver;
-use Base3\Api\IMvcView;
-use Base3\Api\ISystemService;
-use Base3\LinkTarget\Api\ILinkTargetService;
-use Base3\Translation\Api\ITranslation;
-use Base3Ilias\Api\IMetaBarItemProvider;
-use Base3Ilias\Ilias\Base3IliasLegacyContentAdapter;
-use IliasIdentitySwitch\Output\IdentitySwitchCommandOutput;
-use IliasIdentitySwitch\Output\IdentitySwitchDirectoryOutput;
-use IliasIdentitySwitch\Service\IdentitySwitchService;
+
+namespace Base3\IliasIdentitySwitch\MetaBar;
+
+use Base3\CoreFoundation\Api\IAssetResolver;
+use Base3\CoreFoundation\Api\IMvcView;
+use Base3\CoreFoundation\Api\ISystemService;
+use Base3\CoreFoundation\LinkTarget\Api\ILinkTargetService;
+use Base3\CoreFoundation\Translation\Api\ITranslation;
+use Base3\Base3Ilias\Api\IMetaBarItemProvider;
+use Base3\Base3Ilias\Ilias\Base3IliasLegacyContentAdapter;
+use Base3\IliasIdentitySwitch\Output\IdentitySwitchCommandOutput;
+use Base3\IliasIdentitySwitch\Output\IdentitySwitchDirectoryOutput;
+use Base3\IliasIdentitySwitch\Service\IdentitySwitchService;
 use ILIAS\DI\Container as IliasContainer;
 use ILIAS\GlobalScreen\Identification\IdentificationInterface;
 use ILIAS\GlobalScreen\Scope\MetaBar\Factory\isItem;

@@ -1,10 +1,25 @@
 <?php declare(strict_types=1);
 
-namespace IliasIdentitySwitch\Test\Output;
+/***********************************************************************
+ * This file is part of IliasIdentitySwitch for BASE3 Framework.
+ *
+ * IliasIdentitySwitch manages temporary native ILIAS identities.
+ * It provides authorized session switching and safe restoration.
+ * Native ILIAS permissions continue to govern every operation.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Usermanager\User;
-use IliasIdentitySwitch\Output\IdentitySwitchDirectoryOutput;
-use IliasIdentitySwitch\Test\Fixture\AbstractIdentitySwitchRuntimeFixture;
+
+namespace Base3\IliasIdentitySwitch\Test\Output;
+
+use Base3\CoreFoundation\Usermanager\User;
+use Base3\IliasIdentitySwitch\Output\IdentitySwitchDirectoryOutput;
+use Base3\IliasIdentitySwitch\Test\Fixture\AbstractIdentitySwitchRuntimeFixture;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 

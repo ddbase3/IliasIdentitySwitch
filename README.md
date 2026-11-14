@@ -30,8 +30,8 @@ There is no nested switching and no time-based automatic restoration. Session ex
 
 ## Existing integration points
 
-- `Base3Ilias\Api\IMetaBarItemProvider` is unchanged.
-- `Base3Ilias\Api\IModeInfoProvider` is a small discoverable ILIAS-specific extension point.
+- `Base3\Base3Ilias\Api\IMetaBarItemProvider` is unchanged.
+- `Base3\Base3Ilias\Api\IModeInfoProvider` is a small discoverable ILIAS-specific extension point.
 - The existing `Base3IliasAdapter` registers exactly one native layout modification provider and discovers BASE3 mode notices through the class map.
 - `ISession` remains namespaced to BASE3, and is used only for the plugin's own CSRF and reversible state. Native ILIAS authentication values are updated through `ilSession`.
 - `IUsermanager` provides identities; `IAuthorizationService` alone makes the access decision.
@@ -65,4 +65,4 @@ node --test components/Base3/IliasIdentitySwitch/test/ModeInfo/IdentitySwitchMod
 
 These isolated checks do not replace host-level verification on all supported ILIAS 9 to 12 versions, including effective target rights after switching, safe restoration, and native GlobalScreen rendering.
 
-The native ILIAS active-account lookup uses `ilObjUser::_lookupActive()` (not the removed `getStoredActive()`). ILIAS 9/10 and 11/12 legacy UI factory differences are handled solely by `Base3Ilias\Ilias\Base3IliasLegacyContentAdapter` using the existing `ISystemService`; this feature does not contain version-specific UI branches. Native session persistence uses `session_encode()` instead of the human-readable `ilSession::dumpToString()`. Expected identity-switch rejections return HTTP 403, while unexpected native exceptions return HTTP 500 and are logged by the existing BASE3 logger. Neither response reveals internal exception details to the browser.
+The native ILIAS active-account lookup uses `ilObjUser::_lookupActive()` (not the removed `getStoredActive()`). ILIAS 9/10 and 11/12 legacy UI factory differences are handled solely by `Base3\Base3Ilias\Ilias\Base3IliasLegacyContentAdapter` using the existing `ISystemService`; this feature does not contain version-specific UI branches. Native session persistence uses `session_encode()` instead of the human-readable `ilSession::dumpToString()`. Expected identity-switch rejections return HTTP 403, while unexpected native exceptions return HTTP 500 and are logged by the existing BASE3 logger. Neither response reveals internal exception details to the browser.

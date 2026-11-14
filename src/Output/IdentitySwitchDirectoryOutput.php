@@ -1,12 +1,27 @@
 <?php declare(strict_types=1);
 
-namespace IliasIdentitySwitch\Output;
+/***********************************************************************
+ * This file is part of IliasIdentitySwitch for BASE3 Framework.
+ *
+ * IliasIdentitySwitch manages temporary native ILIAS identities.
+ * It provides authorized session switching and safe restoration.
+ * Native ILIAS permissions continue to govern every operation.
+ *
+ * Developed by Daniel Dahme
+ * Licensed under GPL-3.0-or-later
+ * https://www.gnu.org/licenses/gpl-3.0.en.html
+ *
+ * https://base3.de
+ ***********************************************************************/
 
-use Base3\Api\IOutput;
-use Base3\Api\IRequest;
-use Base3\Usermanager\Api\IUsermanager;
-use Base3\Usermanager\User;
-use IliasIdentitySwitch\Service\IdentitySwitchService;
+
+namespace Base3\IliasIdentitySwitch\Output;
+
+use Base3\CoreFoundation\Api\IOutput;
+use Base3\CoreFoundation\Api\IRequest;
+use Base3\CoreFoundation\Usermanager\Api\IUsermanager;
+use Base3\CoreFoundation\Usermanager\User;
+use Base3\IliasIdentitySwitch\Service\IdentitySwitchService;
 use InvalidArgumentException;
 use Throwable;
 
